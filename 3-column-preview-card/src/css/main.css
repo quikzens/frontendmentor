@@ -1,0 +1,139 @@
+/*------------------------------------*\
+    #VARIABLES
+\*------------------------------------*/
+
+:root {
+  --bright-orange: hsl(31, 77%, 52%);
+  --dark-cyan: hsl(184, 100%, 22%);
+  --very-dark-cyan: hsl(179, 100%, 13%);
+  --transparent-white: hsla(0, 0%, 100%, 0.75); /* paragraphs */
+  --very-light-gray: hsl(0, 0%, 95%); /* background, headings, buttons */
+
+  --font-body: "Lexend Deca", sans-serif;
+  --font-heading: "Big Shoulders Display", sans-serif;
+}
+
+
+
+
+
+/*------------------------------------*\
+    #GLOBAL
+\*------------------------------------*/
+
+body {
+  font-size: 15px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  background-color: var(--very-light-gray);
+  padding: 10rem 1.5rem;
+}
+
+
+
+
+
+/*------------------------------------*\
+    #CARDS
+\*------------------------------------*/
+
+.cards {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  max-width: 300px;
+  padding: 3rem;
+  color: var(--transparent-white);
+  font-family: var(--font-body);
+  background-color: var(--clr-primary);
+}
+
+.card--one {
+  --clr-primary: var(--bright-orange);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card--two {
+  --clr-primary: var(--dark-cyan);
+}
+
+.card--three {
+  --clr-primary: var(--very-dark-cyan);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.card__title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: var(--very-light-gray);
+  margin: 1.75rem 0 1.5rem 0;
+}
+
+.card__desc {
+  line-height: 1.6;
+}
+
+.card__cta {
+  display: inline-block;
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+  border: 2px solid var(--very-light-gray);
+  background-color: var(--very-light-gray);
+  color: var(--clr-primary);
+  border-radius: 2rem;
+  text-decoration: none;
+  transition: .2s;
+  user-select: none;
+}
+
+.card__cta:hover {
+  background-color: transparent;
+  color: var(--very-light-gray);
+}
+
+@media (min-width: 1000px) {
+  .cards {
+    flex-direction: row;
+  }
+
+  .card--one {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 10px;
+  }
+
+  .card--three {
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 10px;
+  }
+
+  .card__cta {
+    margin-top: 6rem;
+  }
+}
+
+
+
+
+
+/*------------------------------------*\
+    #ATTRIBUTION
+\*------------------------------------*/
+
+.attribution {
+  padding: 2rem;
+  color: #212121;
+  font-family: var(--font-body);
+  text-align: center;
+}
+
+.attribution a {
+  color: inherit;
+}
