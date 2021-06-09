@@ -69,6 +69,11 @@ body {
   border-bottom-right-radius: 10px;
 }
 
+.card__icon,
+.card__cta {
+  user-select: none;
+}
+
 .card__title {
   font-family: var(--font-heading);
   font-size: 2.5rem;
@@ -91,7 +96,6 @@ body {
   border-radius: 2rem;
   text-decoration: none;
   transition: .2s;
-  user-select: none;
 }
 
 .card__cta:hover {
@@ -130,8 +134,9 @@ body {
 .attribution {
   padding: 2rem;
   color: #212121;
-  font-family: var(--font-body);
+  font-family: "Inter", sans-serif;
   text-align: center;
+  font-size: 1rem;
 }
 
 .attribution a {
