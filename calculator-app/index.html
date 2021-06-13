@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Calculator App</title>
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./src/img/favicon-32x32.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+
+  <link rel="stylesheet" href="./src/css/normalize.css">
+  <link rel="stylesheet" href="./src/css/reset.css">
+  <link rel="stylesheet" href="./src/css/main.css">
+
+  <script src="./src/js/main.js" defer></script>  
+</head>
+<body>
+
+  <div class="container" data-theme="one">
+    <div class="calc">
+
+      <div class="calc__heading">
+        <h2 class="calc__title">calc</h2>
+        <div class="calc__theme">
+          <div class="calc__theme__text">
+            theme
+          </div>
+          <div class="calc__theme__numbers">
+            <p>1</p>
+            <p>2</p>
+            <p>3</p>
+          </div>
+          <div class="calc__theme__switcher"></div>
+        </div>
+      </div>
+
+      <div class="calc__body">
+        <div class="calc__output"></div>
+        <div class="calc__buttons">
+          <button class="calc__button number">7</button>
+          <button class="calc__button number">8</button>
+          <button class="calc__button number">9</button>
+          <button class="calc__button delete">del</button>
+          <button class="calc__button number">4</button>
+          <button class="calc__button number">5</button>
+          <button class="calc__button number">6</button>
+          <button class="calc__button operator">+</button>
+          <button class="calc__button number">1</button>
+          <button class="calc__button number">2</button>
+          <button class="calc__button number">3</button>
+          <button class="calc__button operator">-</button>
+          <button class="calc__button dot">.</button>
+          <button class="calc__button number">0</button>
+          <button class="calc__button operator">÷</button>
+          <button class="calc__button operator">&times;</button>
+          <button class="calc__button reset">reset</button>
+          <button class="calc__button equal">=</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="attribution">
+    <p>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Febrian Amir</a>.</p>
+  </div>
+</body>
+</html>

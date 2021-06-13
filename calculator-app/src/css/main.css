@@ -1,0 +1,274 @@
+/*------------------------------------*\
+    #VARIABLES
+\*------------------------------------*/
+
+:root {
+
+  /*-------*/
+  /* COLOR */
+  /*-------*/
+
+  --white: hsl(0, 0%, 100%);
+  
+  
+  /*------*/
+  /* FONT */
+  /*------*/
+
+  /* body font */
+  --font-body: "Spartan", sans-serif;
+}
+
+
+
+
+
+/*------------------------------------*\
+    #GLOBAL
+\*------------------------------------*/
+
+body {
+  font-family: var(--font-body);
+  font-size: 2rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--main-background);
+}
+
+.container[data-theme="one"] {
+  --main-background: hsl(222, 26%, 31%);
+  --toggle-background: hsl(223, 31%, 20%);
+  --keypad-background: hsl(223, 31%, 20%);
+  --screen-background: hsl(224, 36%, 15%);
+
+  --key-background: hsl(225, 21%, 49%);
+  --key-shadow: hsl(224, 28%, 35%);
+  --key-background-2: hsl(6, 63%, 50%);
+  --key-shadow-2: hsl(6, 70%, 34%);
+  --key-background-3: hsl(30, 25%, 89%);
+  --key-shadow-3: hsl(28, 16%, 65%);
+  
+  --text: hsl(221, 14%, 31%);
+  --text-equal: var(--white);
+}
+
+.container[data-theme="two"] {
+  --main-background: hsl(0, 0%, 90%);
+  --toggle-background: hsl(0, 5%, 81%);
+  --keypad-background: hsl(0, 5%, 81%);
+  --screen-background: hsl(0, 0%, 93%);
+
+  --key-background: hsl(185, 42%, 37%);
+  --key-shadow: hsl(185, 58%, 25%);
+  --key-background-2: hsl(25, 98%, 40%);
+  --key-shadow-2: hsl(25, 99%, 27%);
+  --key-background-3: hsl(45, 7%, 89%);
+  --key-shadow-3: hsl(35, 11%, 61%);
+  
+  --text: hsl(60, 10%, 19%);
+  --text-equal: var(--white);
+}
+
+.container[data-theme="three"] {
+  --main-background: hsl(268, 75%, 9%);
+  --toggle-background: hsl(268, 71%, 12%);
+  --keypad-background: hsl(268, 71%, 12%);
+  --screen-background: hsl(268, 71%, 12%);
+
+  --key-background: hsl(281, 89%, 26%);
+  --key-shadow: sl(285, 91%, 52%);
+  --key-background-2: hsl(176, 100%, 44%);
+  --key-shadow-2: hsl(177, 92%, 70%);
+  --key-background-3: hsl(268, 47%, 21%);
+  --key-shadow-3: hsl(290, 70%, 36%);
+  
+  --text: hsl(52, 100%, 62%);
+  --text-equal: hsl(198, 20%, 13%);
+}
+
+
+
+
+
+/*------------------------------------*\
+    #CALCULATOR
+\*------------------------------------*/
+
+.calc {
+  user-select: none;
+  padding: 2rem 1.3rem;
+  color: var(--white);
+}
+
+[data-theme="two"] .calc,
+[data-theme="three"] .calc {
+  color: var(--text);
+}
+
+/* calc heading */
+.calc__heading {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.calc__title {
+  font-size: 1.9rem;
+}
+
+.calc__theme {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  grid-template-areas: 
+    ". numbers"
+    "text switcher";
+}
+
+.calc__theme__text,
+.calc__theme__numbers {
+  font-size: 0.7rem;
+}
+
+.calc__theme__text {
+  grid-area: text;
+  text-transform: uppercase;
+  margin-right: 1rem;
+}
+
+.calc__theme__numbers {
+  padding: 0 0.4rem;
+  grid-area: numbers;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 0.7rem;
+  margin-bottom: 0.3rem;
+}
+
+.calc__theme__switcher {
+  position: relative;
+  grid-area: switcher;
+  height: 22px;
+  background-color: var(--toggle-background);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.calc__theme__switcher::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  background-color: var(--key-background-2);
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: .3s ease;
+}
+
+[data-theme="two"] .calc__theme__switcher::before {
+  left: 21px;
+}
+
+[data-theme="three"] .calc__theme__switcher::before {
+  left: 40px;
+}
+
+/* calc output */
+.calc__output {
+  padding: 1.6rem;
+  height: 88px;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  text-align: right;
+  background-color: var(--screen-background);
+}
+
+/* calc buttons */
+.calc__buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: 
+    ". . . ."
+    ". . . ."
+    ". . . ."
+    ". . . ."
+    "reset reset equal equal";
+  gap: 0.8rem;
+  padding: 1.3rem;
+  border-radius: 10px;
+  background-color: var(--keypad-background);
+}
+
+.calc__button {
+  border-radius: 9px;
+  border: 0;
+  padding: 1.2rem 1rem 1.1rem 1rem;
+  box-shadow: 0 0.25rem var(--key-shadow-3);
+  font-size: 1.7rem;
+  line-height: 0.9;
+  background-color: var(--key-background-3);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.calc__button.delete,
+.calc__button.reset {
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: var(--white);
+  background-color: var(--key-background);
+  box-shadow: 0 0.25rem var(--key-shadow);
+}
+
+.calc__button.reset {
+  grid-area: reset;
+}
+
+.calc__button.equal {
+  grid-area: equal;
+  color: var(--text-equal);
+  background-color: var(--key-background-2);
+  font-size: 1.1rem;  
+  box-shadow: 0 0.25rem var(--key-shadow-2);
+}
+
+@media (min-width: 768px) {
+  .calc {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  .calc__buttons {
+    gap: 1.2rem;
+  }
+
+  .calc__button {
+    padding: 1.2rem 1.8rem 0.9rem 1.8rem;
+  }
+}
+
+
+
+
+
+/*------------------------------------*\
+    #ATTRIBUTION
+\*------------------------------------*/
+
+.attribution {
+  padding: 2rem;
+  color: #212121;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  font-size: 16px;
+}
+
+.attribution a {
+  color: inherit;
+}
