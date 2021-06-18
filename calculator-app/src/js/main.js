@@ -1,11 +1,11 @@
 function initCalc() {
-  container = document.querySelector('.container')
+  const container = document.querySelector('.container')
   if (localStorage.getItem('theme')) {
     container.dataset.theme = localStorage.getItem('theme')
   }
 
-  calcOutput = document.querySelector('.calc__output')
-  calcButtons = document.querySelectorAll('.calc__button')
+  const calcOutput = document.querySelector('.calc__output')
+  const calcButtons = document.querySelectorAll('.calc__button')
 
   calcButtons.forEach(calcButton => {
     calcButton.addEventListener('click', () => {
@@ -30,8 +30,8 @@ function initCalc() {
           calcOutputContent = calcOutput.textContent
           calcOutputContent = calcOutputContent.replace('÷', '/')
           calcOutputContent = calcOutputContent.replace(',', '.')
-          result = eval(calcOutputContent)
-          result = result.toString()
+          let result = eval(calcOutputContent)
+          let result = result.toString()
           calcOutput.textContent = result.replace('.', ',')
         } 
       }
@@ -40,10 +40,10 @@ function initCalc() {
 }
 
 function initThemeSwitcher() {
-  themeSwitcher = document.querySelector('.calc__theme__switcher')
+  const themeSwitcher = document.querySelector('.calc__theme__switcher')
 
   themeSwitcher.addEventListener('click', () => {
-    dataTheme = container.dataset.theme
+    const dataTheme = container.dataset.theme
     switch (dataTheme) {
       case 'one':
         container.dataset.theme = 'two'
