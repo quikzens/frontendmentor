@@ -1,5 +1,4 @@
 function initCalc() {
-  const container = document.querySelector('.container')
   if (localStorage.getItem('theme')) {
     container.dataset.theme = localStorage.getItem('theme')
   }
@@ -7,9 +6,12 @@ function initCalc() {
   const calcOutput = document.querySelector('.calc__output')
   const calcButtons = document.querySelectorAll('.calc__button')
 
-  calcButtons.forEach(calcButton => {
+  calcButtons.forEach((calcButton) => {
     calcButton.addEventListener('click', () => {
-      if (calcButton.classList.contains('number') || calcButton.classList.contains('operator')) {
+      if (
+        calcButton.classList.contains('number') ||
+        calcButton.classList.contains('operator')
+      ) {
         calcOutput.textContent += calcButton.textContent
       }
       if (calcButton.classList.contains('dot')) {
@@ -18,10 +20,13 @@ function initCalc() {
       if (calcButton.classList.contains('delete')) {
         if (calcOutput.textContent.length > 0) {
           calcOutputContent = calcOutput.textContent
-          calcOutputContent = calcOutputContent.substring(0, calcOutputContent.length - 1)
+          calcOutputContent = calcOutputContent.substring(
+            0,
+            calcOutputContent.length - 1
+          )
           calcOutput.textContent = calcOutputContent
-        }      
-      } 
+        }
+      }
       if (calcButton.classList.contains('reset')) {
         calcOutput.textContent = ''
       }
@@ -30,12 +35,14 @@ function initCalc() {
           calcOutputContent = calcOutput.textContent
           calcOutputContent = calcOutputContent.replace('÷', '/')
           calcOutputContent = calcOutputContent.replace(',', '.')
+          calcOutputContent = calcOutputContent.replace('×', '*')
+          console.log(calcOutputContent)
           let result = eval(calcOutputContent)
-          let result = result.toString()
+          result = result.toString()
           calcOutput.textContent = result.replace('.', ',')
-        } 
+        }
       }
-    }) 
+    })
   })
 }
 
@@ -61,5 +68,6 @@ function initThemeSwitcher() {
   })
 }
 
+const container = document.querySelector('.container')
 initCalc()
 initThemeSwitcher()
